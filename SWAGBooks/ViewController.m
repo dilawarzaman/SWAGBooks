@@ -137,10 +137,14 @@
     {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:MyIdentifier];
     }
-    
-    
-    cell.textLabel.text = [titles objectAtIndex:indexPath.row];
-    cell.detailTextLabel.text = [authors objectAtIndex:indexPath.row];
+    if ([titles count]>0){
+        cell.textLabel.text = [titles objectAtIndex:indexPath.row];
+        cell.detailTextLabel.text = [authors objectAtIndex:indexPath.row];
+    }
+    else {
+        cell.textLabel.text = @"";
+        cell.detailTextLabel.text = @"";
+    }
     return cell;
 }
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -197,11 +201,11 @@
 
 - (IBAction)deleteAll:(id)sender {
     //add code here for when you hit delete
-    NSLog(@"ei");
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     NSString *url = [NSString stringWithFormat:@"http://prolific-interview.herokuapp.com/550850ceb89fdc0009273afa/clean"];
     [manager DELETE:url parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
         [self loadData];
+        [table reloadData];
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         
     }];
