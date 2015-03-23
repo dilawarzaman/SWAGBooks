@@ -18,13 +18,39 @@
 @synthesize publisher;
 @synthesize categories1;
 
-
-
+- (BOOL)textFieldShouldReturn:(UITextField *)textField {
+    if (textField == self.title) {
+        [author becomeFirstResponder];
+        return NO;
+    }
+    else if (textField == self.author) {
+        [publisher becomeFirstResponder];
+        return NO;
+    }
+    else if (textField == self.publisher) {
+        [categories1 becomeFirstResponder];
+        return NO;
+    }
+    else if (textField == self.categories1) {
+        [textField resignFirstResponder];
+        [self sendData];
+        return NO;
+    }
+    return YES;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    title.delegate = self;
+    author.delegate = self;
+    publisher.delegate = self;
+    categories1.delegate = self;
+
 }
 - (IBAction)submit:(id)sender {
+    [self sendData];
+}
+-(void)sendData{
     NSString *url = [NSString stringWithFormat:@"http://prolific-interview.herokuapp.com/550850ceb89fdc0009273afa/books/"];
     
     

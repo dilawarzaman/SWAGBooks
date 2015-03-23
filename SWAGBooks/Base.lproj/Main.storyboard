@@ -273,7 +273,7 @@
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Categories" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Kyn-ul-feG">
                                 <rect key="frame" x="26" y="257" width="548" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" returnKeyType="go"/>
                                 <connections>
                                     <outlet property="delegate" destination="AFO-Xq-jOC" id="NyC-d4-EsL"/>
                                 </connections>
