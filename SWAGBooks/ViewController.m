@@ -139,7 +139,14 @@
     cell.detailTextLabel.text = [authors objectAtIndex:indexPath.row];
     return cell;
 }
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    NSLog(@"cell tapped");
+    [self performSegueWithIdentifier:@"detailView" sender:self];
 
+    
+    
+        
+}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
