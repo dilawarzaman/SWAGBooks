@@ -7,12 +7,14 @@
 //
 
 #import "textView.h"
+#import "AFNetworking.h"
 
 @interface textView ()
 
 @end
 
 @implementation textView
+@synthesize currID;
 @synthesize titleDetailView;
 @synthesize authorDetailView;
 @synthesize publisherDetailView;
@@ -40,6 +42,8 @@
     if (last != (NSString *)[NSNull null] && lastTime != (NSString *)[NSNull null])
         lastCheckedOutDetailView.text = [NSString stringWithFormat:@"%@ @ %@" , last, lastTime];
 
+    
+
 }
 
 - (void)didReceiveMemoryWarning {
@@ -57,4 +61,41 @@
 }
 */
 
+- (IBAction)checkOut:(id)sender {
+    NSString *url = [NSString stringWithFormat:@"http://prolific-interview.herokuapp.com/550850ceb89fdc0009273afa/books/%lu" , (unsigned long)currID ];
+    
+    
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    NSDictionary * params = [[NSMutableDictionary alloc] init];
+    params = @{@"lastCheckedOutBy":@"Dilawar Zaman"};
+    
+    [manager PUT:url parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        NSLog(@"JSON: %@", responseObject);
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        NSLog(@"Error: %@", error);
+    }];
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+- (IBAction)backButton:(id)sender {
+    [self dismissViewControllerAnimated:YES completion:nil];
+
+}
+
+-(NSString*)getCurrentDate{
+    NSDateFormatter *format=[[NSDateFormatter alloc]init];
+    [format setDateFormat:@"yyyy-MM-dd HH:mm:ss ZZZ"];
+    NSString *currentDt=[format stringFromDate:[NSDate date]];
+    NSDate *dt=[format dateFromString:currentDt];
+    //[format setDateFormat:@"dd/MM/yyy"];
+    return [format stringFromDate:dt];
+}
+-(NSString*)getDate{
+    NSDateFormatter *format=[[NSDateFormatter alloc]init];
+    [format setDateFormat:@"yyyy-MM-dd HH:mm:ss ZZZ"];
+    NSString *currentDt=lastTime;
+    NSDate *dt=[format dateFromString:currentDt];
+    //[format setDateFormat:@"dd/MM/yyy"];
+    return [format stringFromDate:dt];
+}
 @end

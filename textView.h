@@ -26,5 +26,9 @@
 @property (strong, nonatomic) NSString *last;
 @property (strong, nonatomic) NSString *lastTime;
 
+@property (nonatomic) NSInteger currID;
+
+- (IBAction)checkOut:(id)sender;
+- (IBAction)backButton:(id)sender;
 
 @end

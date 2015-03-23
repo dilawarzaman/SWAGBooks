@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		0B13671F1ABFCC4B008D3FB2 /* textView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B13671E1ABFCC4B008D3FB2 /* textView.m */; };
+		0B1367221ABFD585008D3FB2 /* addBook.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B1367211ABFD585008D3FB2 /* addBook.m */; };
 		0BBFD6EA1ABF7BEC0045131F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 0BBFD6E91ABF7BEC0045131F /* main.m */; };
 		0BBFD6ED1ABF7BEC0045131F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 0BBFD6EC1ABF7BEC0045131F /* AppDelegate.m */; };
 		0BBFD6F01ABF7BEC0045131F /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0BBFD6EF1ABF7BEC0045131F /* ViewController.m */; };
@@ -39,6 +40,8 @@
 /* Begin PBXFileReference section */
 		0B13671D1ABFCC4B008D3FB2 /* textView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = textView.h; path = ../textView.h; sourceTree = "<group>"; };
 		0B13671E1ABFCC4B008D3FB2 /* textView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = textView.m; path = ../textView.m; sourceTree = "<group>"; };
+		0B1367201ABFD585008D3FB2 /* addBook.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = addBook.h; sourceTree = "<group>"; };
+		0B1367211ABFD585008D3FB2 /* addBook.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = addBook.m; sourceTree = "<group>"; };
 		0BBFD6E41ABF7BEC0045131F /* SWAGBooks.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SWAGBooks.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0BBFD6E81ABF7BEC0045131F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0BBFD6E91ABF7BEC0045131F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -120,6 +123,8 @@
 				0B13671D1ABFCC4B008D3FB2 /* textView.h */,
 				0B13671E1ABFCC4B008D3FB2 /* textView.m */,
 				0BBFD6F11ABF7BEC0045131F /* Main.storyboard */,
+				0B1367201ABFD585008D3FB2 /* addBook.h */,
+				0B1367211ABFD585008D3FB2 /* addBook.m */,
 				0BBFD6F41ABF7BEC0045131F /* Images.xcassets */,
 				0BBFD6F61ABF7BEC0045131F /* LaunchScreen.xib */,
 				0BBFD6E71ABF7BEC0045131F /* Supporting Files */,
@@ -280,6 +285,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0B1367221ABFD585008D3FB2 /* addBook.m in Sources */,
 				0BBFD7A91ABF89B00045131F /* AFHTTPRequestOperation.m in Sources */,
 				0BBFD6F01ABF7BEC0045131F /* ViewController.m in Sources */,
 				0BBFD7AA1ABF89B00045131F /* AFHTTPRequestOperationManager.m in Sources */,

@@ -21,7 +21,7 @@
                                 <rect key="frame" x="0.0" y="44" width="600" height="556"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="U8A-hB-a5O">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="MyIdentifier" id="U8A-hB-a5O">
                                         <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="U8A-hB-a5O" id="RCr-VU-pFR">
@@ -106,7 +106,11 @@
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
                                 <items>
                                     <navigationItem title="Title" id="UGk-Vu-eX8">
-                                        <barButtonItem key="leftBarButtonItem" title="Back" id="pFc-aa-7e6"/>
+                                        <barButtonItem key="leftBarButtonItem" title="Back" id="pFc-aa-7e6">
+                                            <connections>
+                                                <action selector="backButton:" destination="ZYc-oi-VM7" id="8Cs-Bh-H5z"/>
+                                            </connections>
+                                        </barButtonItem>
                                     </navigationItem>
                                 </items>
                             </navigationBar>
@@ -115,6 +119,9 @@
                                 <state key="normal" title="Checkout">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="checkOut:" destination="ZYc-oi-VM7" eventType="touchUpInside" id="0fo-Pl-Gl1"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -133,10 +140,10 @@
             </objects>
             <point key="canvasLocation" x="84" y="87"/>
         </scene>
-        <!--View Controller-->
+        <!--Add Book-->
         <scene sceneID="9c6-RB-7s6">
             <objects>
-                <viewController id="AFO-Xq-jOC" sceneMemberID="viewController">
+                <viewController id="AFO-Xq-jOC" customClass="addBook" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="aEc-fj-qxY"/>
                         <viewControllerLayoutGuide type="bottom" id="E5u-db-YAe"/>
@@ -182,6 +189,12 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <connections>
+                        <outlet property="author" destination="DeU-u7-bqf" id="w0w-Bs-QkY"/>
+                        <outlet property="categories1" destination="Kyn-ul-feG" id="Z3g-TN-26X"/>
+                        <outlet property="publisher" destination="FPc-RJ-yQW" id="lGH-Tg-qc5"/>
+                        <outlet property="title" destination="Hxx-qH-tte" id="wAY-Lj-8gW"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lWI-ua-1ES" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

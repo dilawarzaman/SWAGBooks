@@ -98,7 +98,7 @@
             
         }
 
-        NSLog(@"%@", responseObject);
+        //NSLog(@"%@", responseObject);
         [table reloadData];
         
         
@@ -157,12 +157,14 @@
         userViewController.publ = [publishers objectAtIndex:currPage];
         userViewController.categ = [categories objectAtIndex:currPage];
         userViewController.last = [lastCheckedOutBys objectAtIndex:currPage];
-
+        userViewController.lastTime = [lastCheckOuts objectAtIndex:currPage];
+        userViewController.currID = [[ids objectAtIndex:currPage] intValue];
     }
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
 
 @end
