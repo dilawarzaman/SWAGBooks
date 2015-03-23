@@ -42,7 +42,7 @@
     if (last != (NSString *)[NSNull null] && lastTime != (NSString *)[NSNull null])
         lastCheckedOutDetailView.text = [NSString stringWithFormat:@"%@ @ %@" , last, lastTime];
 
-    
+    titleDetailView.font = [UIFont fontWithName:@"Helvetica Neue" size:18.0];
 
 }
 
@@ -51,15 +51,6 @@
     // Dispose of any resources that can be recreated.
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 - (IBAction)checkOut:(id)sender {
     NSString *url = [NSString stringWithFormat:@"http://prolific-interview.herokuapp.com/550850ceb89fdc0009273afa/books/%lu" , (unsigned long)currID ];
@@ -78,24 +69,8 @@
 }
 
 - (IBAction)backButton:(id)sender {
+    
     [self dismissViewControllerAnimated:YES completion:nil];
 
-}
-
--(NSString*)getCurrentDate{
-    NSDateFormatter *format=[[NSDateFormatter alloc]init];
-    [format setDateFormat:@"yyyy-MM-dd HH:mm:ss ZZZ"];
-    NSString *currentDt=[format stringFromDate:[NSDate date]];
-    NSDate *dt=[format dateFromString:currentDt];
-    //[format setDateFormat:@"dd/MM/yyy"];
-    return [format stringFromDate:dt];
-}
--(NSString*)getDate{
-    NSDateFormatter *format=[[NSDateFormatter alloc]init];
-    [format setDateFormat:@"yyyy-MM-dd HH:mm:ss ZZZ"];
-    NSString *currentDt=lastTime;
-    NSDate *dt=[format dateFromString:currentDt];
-    //[format setDateFormat:@"dd/MM/yyy"];
-    return [format stringFromDate:dt];
 }
 @end

@@ -8,7 +8,7 @@
 
 #import "ViewController.h"
 
-@interface textView : ViewController{
+@interface textView : UIViewController{
 }
 
 

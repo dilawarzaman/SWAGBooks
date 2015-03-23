@@ -29,29 +29,10 @@
     publishers = [[NSMutableArray alloc] init];
     titles = [[NSMutableArray alloc] init];
     urls = [[NSMutableArray alloc] init];
-
-    // Do any additional setup after loading the view, typically from a nib.
-    /*
-     NSMutableURLRequest *request = [[NSMutableURLRequest alloc] init];
-     [request setURL:[NSURL URLWithString:@"http://prolific-interview.herokuapp.com/550850ceb89fdc0009273afa/"]];
-     [request setHTTPMethod:@"GET"];
-     
-     
-     NSURLResponse *requestResponse;
-     NSData *requestHandler = [NSURLConnection sendSynchronousRequest:request returningResponse:&requestResponse error:nil];
-     
-     NSString *requestReply = [[NSString alloc] initWithBytes:[requestHandler bytes] length:[requestHandler length] encoding:NSASCIIStringEncoding];
-     NSLog(@"requestReply: %@", requestReply);
-     
-     */
     
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     
     [manager GET:@"http://prolific-interview.herokuapp.com/550850ceb89fdc0009273afa/books" parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        //books = responseObject;
-        //NSArray *jsonArray = [NSJSONSerialization JSONObjectWithData:responseObject options:0 error:nil];
-        //NSLog(@"JSON: %@", responseObject);
-        
         
         NSString *responseString = [operation responseString];
         NSData *data= [responseString dataUsingEncoding:NSUTF8StringEncoding];
@@ -67,38 +48,45 @@
             NSString *author = res[@"author"];
             if (author)
                 [authors addObject:author];
-            
+            else
+                [authors addObject:@""];
             NSString *category = res[@"categories"];
             if (category)
                 [categories addObject:category];
-             
+            else
+                [categories addObject:@""];
             NSString *idN = res[@"id"];
             if (idN)
                 [ids addObject:idN];
-            
+            else
+                [ids addObject:@""];
             NSString *lastCheckedOut = res[@"lastCheckedOut"];
             if (lastCheckedOut)
                 [lastCheckOuts addObject:lastCheckedOut];
-            
+            else
+                [lastCheckOuts addObject:@""];
             NSString *lastCheckedOutBy = res[@"lastCheckedOutBy"];
             if (lastCheckedOutBy)
                 [lastCheckedOutBys addObject:lastCheckedOutBy];
-            
+            else
+                [lastCheckedOutBys addObject:@""];
             NSString *publisher = res[@"publisher"];
             if (publisher)
                 [publishers addObject:publisher];
-            
+            else
+                [publishers addObject:@""];
             NSString *title = res[@"title"];
             if (title)
                 [titles addObject:title];
-             
+            else
+                [titles addObject:@""];
             NSString *url = res[@"url"];
             if (url)
                 [urls addObject:url];
-            
+            else
+                [urls addObject:@""];
         }
 
-        //NSLog(@"%@", responseObject);
         [table reloadData];
         
         
@@ -142,7 +130,6 @@
     return cell;
 }
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    NSLog(@"cell tapped");
     currPage = indexPath.row;
     [self performSegueWithIdentifier:@"detailView" sender:self];
 

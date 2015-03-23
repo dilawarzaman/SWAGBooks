@@ -8,12 +8,14 @@
 
 #import "ViewController.h"
 
-@interface addBook : ViewController
+@interface addBook : ViewController <UITextFieldDelegate>
 
 
 @property (strong, nonatomic) IBOutlet UITextField *title;
 @property (strong, nonatomic) IBOutlet UITextField *author;
 @property (strong, nonatomic) IBOutlet UITextField *publisher;
 @property (strong, nonatomic) IBOutlet UITextField *categories1;
+
+- (IBAction)submit:(id)sender;
 
 @end
