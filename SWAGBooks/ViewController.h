@@ -24,7 +24,7 @@
 }
 
 @property (strong, nonatomic) IBOutlet UITableView *table;
-;
+- (IBAction)deleteAll:(id)sender;
 
 @end
 

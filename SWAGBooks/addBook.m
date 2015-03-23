@@ -23,10 +23,6 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-
-    
-    
-    // Do any additional setup after loading the view.
 }
 - (IBAction)submit:(id)sender {
     NSString *url = [NSString stringWithFormat:@"http://prolific-interview.herokuapp.com/550850ceb89fdc0009273afa/books/"];
@@ -44,19 +40,27 @@
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
+- (IBAction)done:(id)sender {
+    if ([author.text isEqual: @""] && [title.text isEqual: @""] && [publisher.text isEqual: @""] && [categories1.text isEqual: @""] ) {
+        [self dismissViewControllerAnimated:YES completion:nil];
+    }
+    else{
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Are you sure?" message:@"Unsaved changes will be discarded?" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:nil];
+        // optional - add more buttons:
+        [alert addButtonWithTitle:@"Yes"];
+        [alert show];
+    }
+}
+- (void)alertView:(UIAlertView *)alertView didDismissWithButtonIndex:(NSInteger)buttonIndex {
+    if (buttonIndex == 1) {
+        [self dismissViewControllerAnimated:YES completion:nil];
+    }
+}
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

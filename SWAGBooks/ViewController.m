@@ -30,6 +30,22 @@
     titles = [[NSMutableArray alloc] init];
     urls = [[NSMutableArray alloc] init];
     
+    [self loadData];
+    
+}
+-(void)viewDidAppear:(BOOL)animated{
+    [self loadData];
+}
+-(void)loadData{
+    [authors removeAllObjects];
+    [categories removeAllObjects];
+    [ids removeAllObjects];
+    [lastCheckOuts removeAllObjects];
+    [lastCheckedOutBys removeAllObjects];
+    [publishers removeAllObjects];
+    [titles removeAllObjects];
+    [urls removeAllObjects];
+    
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     
     [manager GET:@"http://prolific-interview.herokuapp.com/550850ceb89fdc0009273afa/books" parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
@@ -86,7 +102,7 @@
             else
                 [urls addObject:@""];
         }
-
+        
         [table reloadData];
         
         
@@ -94,9 +110,7 @@
         NSLog(@"Error: %@", error);
     }];
     
-    
-    
-    
+
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
@@ -135,17 +149,44 @@
 
         
 }
+
+- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
+    // Return YES if you want the specified item to be editable.
+    return YES;
+}
+
+// Override to support editing the table view.
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (editingStyle == UITableViewCellEditingStyleDelete) {
+        //add code here for when you hit delete
+        AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+        NSDictionary * params = [[NSMutableDictionary alloc] init];
+        params = @{@"lastCheckedOutBy":@"Dilawar Zaman"};
+        NSString *url = [NSString stringWithFormat:@"http://prolific-interview.herokuapp.com/550850ceb89fdc0009273afa/books/%@", [ids objectAtIndex:indexPath.row]];
+        [manager DELETE:url parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
+            [self loadData];
+        } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+            
+        }];
+
+    }
+    
+
+}
+
 - (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     if ([[segue identifier] isEqualToString:@"detailView"]) {
         textView* userViewController = [segue destinationViewController];
-        userViewController.titl = [titles objectAtIndex:currPage];
-        userViewController.auth = [authors objectAtIndex:currPage];
-        userViewController.publ = [publishers objectAtIndex:currPage];
-        userViewController.categ = [categories objectAtIndex:currPage];
-        userViewController.last = [lastCheckedOutBys objectAtIndex:currPage];
-        userViewController.lastTime = [lastCheckOuts objectAtIndex:currPage];
-        userViewController.currID = [[ids objectAtIndex:currPage] intValue];
+        NSIndexPath *indexPath = [self.table indexPathForSelectedRow];
+
+        userViewController.titl = [titles objectAtIndex:indexPath.row];
+        userViewController.auth = [authors objectAtIndex:indexPath.row];
+        userViewController.publ = [publishers objectAtIndex:indexPath.row];
+        userViewController.categ = [categories objectAtIndex:indexPath.row];
+        userViewController.last = [lastCheckedOutBys objectAtIndex:indexPath.row];
+        userViewController.lastTime = [lastCheckOuts objectAtIndex:indexPath.row];
+        userViewController.currID = [[ids objectAtIndex:indexPath.row] intValue];
     }
 }
 - (void)didReceiveMemoryWarning {
@@ -154,4 +195,15 @@
 }
 
 
+- (IBAction)deleteAll:(id)sender {
+    //add code here for when you hit delete
+    NSLog(@"ei");
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    NSString *url = [NSString stringWithFormat:@"http://prolific-interview.herokuapp.com/550850ceb89fdc0009273afa/clean"];
+    [manager DELETE:url parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        [self loadData];
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        
+    }];
+}
 @end

@@ -40,10 +40,15 @@
                             <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vg9-vh-PPd">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
                                 <items>
-                                    <navigationItem title="Title" id="0iY-SJ-4KU">
-                                        <barButtonItem key="leftBarButtonItem" title="Add" id="Vsy-Tk-mxk">
+                                    <navigationItem title="Books" id="0iY-SJ-4KU">
+                                        <barButtonItem key="leftBarButtonItem" title="Add" id="Hfh-j9-1Kj">
                                             <connections>
-                                                <segue destination="AFO-Xq-jOC" kind="presentation" id="Zv9-2a-8fl"/>
+                                                <segue destination="AFO-Xq-jOC" kind="presentation" id="rce-NF-ihB"/>
+                                            </connections>
+                                        </barButtonItem>
+                                        <barButtonItem key="rightBarButtonItem" title="Delete All" id="NaE-F0-xCq">
+                                            <connections>
+                                                <action selector="deleteAll:" destination="BYZ-38-t0r" id="6Vr-0L-TMm"/>
                                             </connections>
                                         </barButtonItem>
                                     </navigationItem>
@@ -233,7 +238,11 @@
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
                                 <items>
                                     <navigationItem title="Title" id="mBE-am-kb4">
-                                        <barButtonItem key="rightBarButtonItem" title="Done" id="dRw-Sd-O0r"/>
+                                        <barButtonItem key="rightBarButtonItem" title="Done" id="dRw-Sd-O0r">
+                                            <connections>
+                                                <action selector="done:" destination="AFO-Xq-jOC" id="ZzV-DW-HkX"/>
+                                            </connections>
+                                        </barButtonItem>
                                     </navigationItem>
                                 </items>
                             </navigationBar>

@@ -8,7 +8,7 @@
 
 #import "ViewController.h"
 
-@interface addBook : ViewController <UITextFieldDelegate>
+@interface addBook : ViewController <UITextFieldDelegate,UIAlertViewDelegate>
 
 
 @property (strong, nonatomic) IBOutlet UITextField *title;
@@ -17,5 +17,6 @@
 @property (strong, nonatomic) IBOutlet UITextField *categories1;
 
 - (IBAction)submit:(id)sender;
+- (IBAction)done:(id)sender;
 
 @end
