@@ -8,6 +8,7 @@
 
 #import "ViewController.h"
 #import "AFNetworking.h"
+#import "textView.h"
 
 @interface ViewController ()
 
@@ -15,6 +16,7 @@
 
 @implementation ViewController
 @synthesize table;
+
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -96,7 +98,7 @@
             
         }
 
-        //NSLog(@"%@", authors);
+        NSLog(@"%@", responseObject);
         [table reloadData];
         
         
@@ -141,11 +143,22 @@
 }
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     NSLog(@"cell tapped");
+    currPage = indexPath.row;
     [self performSegueWithIdentifier:@"detailView" sender:self];
 
-    
-    
         
+}
+- (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if ([[segue identifier] isEqualToString:@"detailView"]) {
+        textView* userViewController = [segue destinationViewController];
+        userViewController.titl = [titles objectAtIndex:currPage];
+        userViewController.auth = [authors objectAtIndex:currPage];
+        userViewController.publ = [publishers objectAtIndex:currPage];
+        userViewController.categ = [categories objectAtIndex:currPage];
+        userViewController.last = [lastCheckedOutBys objectAtIndex:currPage];
+
+    }
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

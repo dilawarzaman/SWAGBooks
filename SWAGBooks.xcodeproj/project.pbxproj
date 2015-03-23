@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0B13671F1ABFCC4B008D3FB2 /* textView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B13671E1ABFCC4B008D3FB2 /* textView.m */; };
 		0BBFD6EA1ABF7BEC0045131F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 0BBFD6E91ABF7BEC0045131F /* main.m */; };
 		0BBFD6ED1ABF7BEC0045131F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 0BBFD6EC1ABF7BEC0045131F /* AppDelegate.m */; };
 		0BBFD6F01ABF7BEC0045131F /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0BBFD6EF1ABF7BEC0045131F /* ViewController.m */; };
@@ -36,6 +37,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0B13671D1ABFCC4B008D3FB2 /* textView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = textView.h; path = ../textView.h; sourceTree = "<group>"; };
+		0B13671E1ABFCC4B008D3FB2 /* textView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = textView.m; path = ../textView.m; sourceTree = "<group>"; };
 		0BBFD6E41ABF7BEC0045131F /* SWAGBooks.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SWAGBooks.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0BBFD6E81ABF7BEC0045131F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0BBFD6E91ABF7BEC0045131F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -114,6 +117,8 @@
 				0BBFD6EC1ABF7BEC0045131F /* AppDelegate.m */,
 				0BBFD6EE1ABF7BEC0045131F /* ViewController.h */,
 				0BBFD6EF1ABF7BEC0045131F /* ViewController.m */,
+				0B13671D1ABFCC4B008D3FB2 /* textView.h */,
+				0B13671E1ABFCC4B008D3FB2 /* textView.m */,
 				0BBFD6F11ABF7BEC0045131F /* Main.storyboard */,
 				0BBFD6F41ABF7BEC0045131F /* Images.xcassets */,
 				0BBFD6F61ABF7BEC0045131F /* LaunchScreen.xib */,
@@ -284,6 +289,7 @@
 				0BBFD7AD1ABF89B00045131F /* AFSecurityPolicy.m in Sources */,
 				0BBFD7AB1ABF89B00045131F /* AFHTTPSessionManager.m in Sources */,
 				0BBFD7AF1ABF89B00045131F /* AFURLRequestSerialization.m in Sources */,
+				0B13671F1ABFCC4B008D3FB2 /* textView.m in Sources */,
 				0BBFD7B11ABF89B00045131F /* AFURLSessionManager.m in Sources */,
 				0BBFD6ED1ABF7BEC0045131F /* AppDelegate.m in Sources */,
 				0BBFD6EA1ABF7BEC0045131F /* main.m in Sources */,

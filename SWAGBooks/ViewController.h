@@ -19,10 +19,11 @@
     NSMutableArray *urls;
 
     NSUInteger count;
+    NSUInteger currPage;
+
 }
 
 @property (strong, nonatomic) IBOutlet UITableView *table;
-
 
 @end
 

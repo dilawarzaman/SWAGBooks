@@ -48,10 +48,10 @@
             </objects>
             <point key="canvasLocation" x="-565" y="87"/>
         </scene>
-        <!--View Controller-->
+        <!--Text View-->
         <scene sceneID="8q3-JY-SwK">
             <objects>
-                <viewController id="ZYc-oi-VM7" sceneMemberID="viewController">
+                <viewController id="ZYc-oi-VM7" customClass="textView" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="3Vy-LX-SFD"/>
                         <viewControllerLayoutGuide type="bottom" id="H7u-2j-kJ3"/>
@@ -60,6 +60,30 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="Title" translatesAutoresizingMaskIntoConstraints="NO" id="dRa-H4-Cas">
+                                <rect key="frame" x="16" y="74" width="568" height="98"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="Author" translatesAutoresizingMaskIntoConstraints="NO" id="m7Y-14-LoX">
+                                <rect key="frame" x="16" y="180" width="568" height="98"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="Publisher" translatesAutoresizingMaskIntoConstraints="NO" id="WEa-47-FiX">
+                                <rect key="frame" x="16" y="286" width="568" height="98"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="Category" translatesAutoresizingMaskIntoConstraints="NO" id="dxS-D0-ScH">
+                                <rect key="frame" x="16" y="392" width="568" height="98"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
                             <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="LjU-If-Y7Z">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
                                 <items>
@@ -68,11 +92,24 @@
                                     </navigationItem>
                                 </items>
                             </navigationBar>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="Last Checked Out:" translatesAutoresizingMaskIntoConstraints="NO" id="pAO-Ee-IFL">
+                                <rect key="frame" x="16" y="498" width="568" height="98"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <toolbarItems/>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="authorDetailView" destination="m7Y-14-LoX" id="jHO-5V-s7O"/>
+                        <outlet property="categoryDetailView" destination="dxS-D0-ScH" id="CrE-0b-n2N"/>
+                        <outlet property="lastCheckedOutDetailView" destination="pAO-Ee-IFL" id="NAi-Ig-kcG"/>
+                        <outlet property="publisherDetailView" destination="WEa-47-FiX" id="4B7-vB-tlc"/>
+                        <outlet property="titleDetailView" destination="dRa-H4-Cas" id="R50-Ap-diI"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hiC-0D-TjI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
